@@ -1,5 +1,6 @@
 package freedomphones.userdb;
 
+
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -10,6 +11,6 @@ import freedomphones.userdb.users.User;
 
 @Repository
 public interface IUserRepository extends MongoRepository<User, String>{
-    @Query("{ 'username' : ?0}")
-    User findUserByUsername(String username);
+    @Query(value = "{ 'username.username':?0}")
+    List<User> findUserByUsername(String username);
 }
