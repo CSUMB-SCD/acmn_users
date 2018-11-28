@@ -1,6 +1,6 @@
 package freedomphones.userdb;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +15,8 @@ public class UserController{
     IUserRepository userRepository;
 
     @GetMapping("/userExist/{username}")
-    public List<User> userExist(@PathVariable String username){
-        List<User> users = userRepository.findUserByUsername(username);
-        return users;
+    public Optional<User> userExist(@PathVariable String username){
+        Optional<User> user = userRepository.findUserByUsername(username);
+        return user;
     }
 }
