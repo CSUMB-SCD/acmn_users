@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import freedomphones.userdb.users.Funds;
 import freedomphones.userdb.users.Password;
 import freedomphones.userdb.users.User;
 import freedomphones.userdb.users.Username;
@@ -17,7 +18,7 @@ public class UserDbSeeder implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        User user = new User(new Username("user"), new Password("password"));
+        User user = new User(new Username("user"), new Password("password"), new Funds(70000.00));
         userRepo.deleteAll();
         userRepo.save(user);
     }

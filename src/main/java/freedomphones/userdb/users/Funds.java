@@ -1,16 +1,16 @@
 package freedomphones.userdb.users;
 
 public class Funds{
-    private Float funds;
+    private Double funds;
 
-    public Funds(float funds){
+    public Funds(Double funds){
         this.funds = funds;
     }
 
-    public void setFunds(Float funds){
+    public void setFunds(Double funds){
         this.funds = funds;
     }
-    public Float getFunds(){
+    public Double getFunds(){
         return this.funds;
     }
 }
