@@ -20,6 +20,9 @@ public class User{
     public Username getUsername(){
         return this.username;
     }
+    public String getId(){
+        return this.id;
+    }
     public void setUsername(Username username){
         this.username = username;
     }
