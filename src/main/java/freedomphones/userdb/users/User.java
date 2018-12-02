@@ -9,10 +9,12 @@ public class User{
     private String id;
     private Username username;
     private Password password;
+    private Funds funds;
 
-    public User(Username username, Password password){
+    public User(Username username, Password password, Funds funds){
         this.username = username;
         this.password = password;
+        this.funds = funds;
     }
 
     public Username getUsername(){
@@ -29,5 +31,11 @@ public class User{
     }
     public void setPassword(Password password){
         this.password = password;
+    }
+    public Funds getFunds(){
+        return this.funds;
+    }
+    public void setFunds(Funds funds){
+        this.funds = funds;
     }
 }
