@@ -14,7 +14,7 @@ public class UserController{
     @Autowired
     IUserRepository userRepository;
 
-    @GetMapping("/userExist/{username}")
+    @GetMapping("/getUser/{username}")
     public Optional<User> userExist(@PathVariable String username){
         Optional<User> user = userRepository.findUserByUsername(username);
         return user;
