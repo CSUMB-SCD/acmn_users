@@ -3,7 +3,6 @@ package freedomphones.userdb;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,12 +15,9 @@ public class UserController{
     IUserRepository userRepository;
 
     @GetMapping(value="/getUser/{username}", produces="application/json")
-    public ResponseEntity<?> userExist(@PathVariable String username){
+    public Optional<User> userExist(@PathVariable String username){
         Optional<User> user = userRepository.findUserByUsername(username);
-        Login login = new Login();
-        user.ifPresent(resp -> login.loginSuccess());
-        login.loginFailed();
-        return login.getStatus();
+        return user;
     }
     
 
