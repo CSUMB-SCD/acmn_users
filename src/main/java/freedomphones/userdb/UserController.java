@@ -24,7 +24,7 @@ public class UserController{
         User user = userRepository.getUser(username);
         return user.getFunds();
     }
-    @GetMapping(value="/removeFunds/{username}/{amount}/")
+    @GetMapping(value="/removeFunds/{username}/{amount}")
     public String removeFunds(@PathVariable String username, @PathVariable Double amount){
         User user = userRepository.getUser(username);
         user.setFunds(user.getFunds() - amount);
