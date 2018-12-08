@@ -7,35 +7,35 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User{
     @Id
     private String id;
-    private Username username;
-    private Password password;
-    private Funds funds;
+    private String username;
+    private String password;
+    private Double funds;
 
-    public User(Username username, Password password, Funds funds){
+    public User(String username, String password, Double funds){
         this.username = username;
         this.password = password;
         this.funds = funds;
     }
 
-    public Username getUsername(){
+    public String getUsername(){
         return this.username;
     }
     public String getId(){
         return this.id;
     }
-    public void setUsername(Username username){
+    public void setUsername(String username){
         this.username = username;
     }
-    public Password getPassword(){
+    public String getPassword(){
         return this.password;
     }
-    public void setPassword(Password password){
+    public void setPassword(String password){
         this.password = password;
     }
-    public Funds getFunds(){
+    public Double getFunds(){
         return this.funds;
     }
-    public void setFunds(Funds funds){
+    public void setFunds(Double funds){
         this.funds = funds;
     }
 }
