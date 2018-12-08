@@ -13,4 +13,7 @@ import freedomphones.userdb.users.User;
 public interface IUserRepository extends MongoRepository<User, String>{
     @Query(value = "{ 'username':?0}")
     Optional<User> findUserByUsername(String username);
+
+    @Query(value = "{ 'username':?0}")
+    User getUser(String username);
 }

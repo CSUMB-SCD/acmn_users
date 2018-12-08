@@ -15,10 +15,14 @@ public class UserController{
     IUserRepository userRepository;
 
     @GetMapping(value="/getUser/{username}", produces="application/json")
-    public Optional<User> userExist(@PathVariable String username){
+    public Optional<User> getUser(@PathVariable String username){
         Optional<User> user = userRepository.findUserByUsername(username);
         return user;
     }
-    
+    @GetMapping(value="getFunds/{username}")
+    public Double getFunds(@PathVariable String username){
+        User user = userRepository.getUser(username);
+        return user.getFunds();
+    }
 
 }
