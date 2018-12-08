@@ -19,10 +19,17 @@ public class UserController{
         Optional<User> user = userRepository.findUserByUsername(username);
         return user;
     }
-    @GetMapping(value="getFunds/{username}")
+    @GetMapping(value="/getFunds/{username}")
     public Double getFunds(@PathVariable String username){
         User user = userRepository.getUser(username);
         return user.getFunds();
+    }
+    @GetMapping(value="/removeFunds/{username}/{amount}/")
+    public String removeFunds(@PathVariable String username, @PathVariable Double amount){
+        User user = userRepository.getUser(username);
+        user.setFunds(user.getFunds() - amount);
+        userRepository.save(user);
+        return "Success";
     }
 
 }
